@@ -1,0 +1,78 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+
+model Customer {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  name String
+  email String
+  status Boolean
+  created_at DateTime? @default(now())
+  updated_at DateTime? @default(now())
+
+  @@map("customers")
+}
+
+model Measurement {
+  id         String    @id @map("_id")
+  VideoName  String
+  TimeStemp  DateTime
+  Gps_Y      Float
+  Gps_X      Float @map(" Gps_X")
+  Gps_Z      Float
+  WheelAngle Float
+  VehicleSpeed Float
+  Curves     String
+  CamType    String
+  VehicleType String
+  
+  @@map("Measuments")
+}
+
+
+model GeoData {
+  id         String    @id @map("_id")
+  TimeStemp  DateTime
+  Rua     String
+  Bairro    String
+  Cidade String
+  Estado String
+  Pais String
+  
+  @@map("GeoCode")
+}
+
+model GeoMenu {
+  id         String    @id @map("_id")
+  TimeStemp  DateTime
+  CityDuration  Int
+  Cidade String
+  Estado String
+  Pais String
+  
+  @@map("GeoMenu")
+}
+
+model FilesMenu {
+  id         String    @id @map("_id")
+  TimeStemp  DateTime
+  Videoname String
+  Bairro String
+  Cidade String
+  Estado String
+  Link String
+  Gps_Y Float
+  Gps_X Float @map(" Gps_X")
+  Gps_Z Float
+  
+  @@map("VideoFiles")
+}
