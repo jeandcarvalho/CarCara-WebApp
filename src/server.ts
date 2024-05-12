@@ -8,14 +8,19 @@ app.setErrorHandler((error, request, reply) => {
     reply.code(400).send({ message: error.message });
 });
 
-const start = async () => {
-    await app.register(cors);
-    await app.register(routes);
+// Registre o plugin fastify-cors
+app.register(cors, {
+    origin: ['*'], // ou '*' para permitir de qualquer origem
+    methods: ['GET'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+});
 
+app.register(routes);
+
+const start = async () => {
     try {
-        // Configure o servidor para ouvir em todos os endereços disponíveis
-        await app.listen({ port: 8080, host: '0.0.0.0' });
-        console.log(`Servidor rodando em http://0.0.0.0:3333`);
+        await app.listen({ port: 3333 });
+        console.log(`Servidor rodando`);
     } catch (err) {
         console.error(err);
         process.exit(1);
