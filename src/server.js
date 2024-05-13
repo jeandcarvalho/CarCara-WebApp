@@ -23,12 +23,9 @@ const start = () => __awaiter(void 0, void 0, void 0, function* () {
     yield app.register(cors_1.default);
     yield app.register(routes_1.routes);
     try {
-        // Configure o servidor para ouvir em todos os endereços disponíveis
-        yield app.listen({ port: 8080, host: '0.0.0.0' });
-        console.log(`Servidor rodando em http://0.0.0.0:3333`);
+        yield app.listen(process.env.PORT || 3333, '0.0.0.0');
     }
     catch (err) {
-        console.error(err);
         process.exit(1);
     }
 });
