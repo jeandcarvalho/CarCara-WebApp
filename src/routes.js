@@ -11,10 +11,18 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.routes = void 0;
 const ListFilesController_1 = require("./controllers/ListFilesController");
+const ListCarController_1 = require("./controllers/ListCarController");
+const ListGeoController_1 = require("./controllers/ListGeoController");
 function routes(fastify, options) {
     return __awaiter(this, void 0, void 0, function* () {
         fastify.get("/videofiles", (request, reply) => __awaiter(this, void 0, void 0, function* () {
             return new ListFilesController_1.ListFilesController().handle(request, reply);
+        }));
+        fastify.get("/measurements", (request, reply) => __awaiter(this, void 0, void 0, function* () {
+            return new ListCarController_1.ListCarController().handle(request, reply);
+        }));
+        fastify.get("/geodata", (request, reply) => __awaiter(this, void 0, void 0, function* () {
+            return new ListGeoController_1.ListGeoController().handle(request, reply);
         }));
     });
 }
