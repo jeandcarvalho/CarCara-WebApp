@@ -13,6 +13,7 @@ exports.routes = void 0;
 const ListFilesController_1 = require("./controllers/ListFilesController");
 const ListCarController_1 = require("./controllers/ListCarController");
 const ListGeoController_1 = require("./controllers/ListGeoController");
+const ListCoordController_1 = require("./controllers/ListCoordController");
 function routes(fastify, options) {
     return __awaiter(this, void 0, void 0, function* () {
         fastify.get("/videofiles", (request, reply) => __awaiter(this, void 0, void 0, function* () {
@@ -23,6 +24,9 @@ function routes(fastify, options) {
         }));
         fastify.get("/geodata", (request, reply) => __awaiter(this, void 0, void 0, function* () {
             return new ListGeoController_1.ListGeoController().handle(request, reply);
+        }));
+        fastify.get("/coordinates", (request, reply) => __awaiter(this, void 0, void 0, function* () {
+            return new ListCoordController_1.ListCoordController().handle(request, reply);
         }));
     });
 }
