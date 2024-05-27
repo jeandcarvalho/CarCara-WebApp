@@ -18,7 +18,7 @@ class ListCoordService {
             try {
                 const skip = (page - 1) * pageSize;
                 const where = searchString ? { Videoname: { contains: searchString } } : {};
-                const filesdatas = yield prisma.filesMenu.findMany({
+                const filesdatas = yield prisma.coordinates.findMany({
                     where,
                     skip,
                     take: pageSize,

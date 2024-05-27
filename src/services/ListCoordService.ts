@@ -6,8 +6,8 @@ class ListCoordService {
   async execute(page: number, pageSize: number, searchString?: string): Promise<any[]> {
     try {
       const skip = (page - 1) * pageSize;
-      const where: Prisma.FilesMenuWhereInput = searchString ? { Videoname: { contains: searchString } } : {};
-      const filesdatas = await prisma.filesMenu.findMany({
+      const where: Prisma.CoordinatesWhereInput = searchString ? { Videoname: { contains: searchString } } : {};
+      const filesdatas = await prisma.coordinates.findMany({
         where,
         skip,
         take: pageSize,

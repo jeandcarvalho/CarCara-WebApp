@@ -76,3 +76,14 @@ model FilesMenu {
   
   @@map("VideoFiles")
 }
+
+model Coordinates {
+  id         String    @id @map("_id")
+  Videoname String
+  TimeStemp  DateTime
+  Gps_y String
+  Gps_x String
+  Gps_z String
+  
+  @@map("GPS")
+}
