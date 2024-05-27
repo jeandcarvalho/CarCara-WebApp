@@ -79,11 +79,11 @@ model FilesMenu {
 
 model Coordinates {
   id         String    @id @map("_id")
-  Videoname String
-  TimeStemp  DateTime
-  Gps_y String
-  Gps_x String
-  Gps_z String
+  videoname String
+  timestamps  String
+  GPS_y String
+  GPS_x String
+  GPS_z String
   
   @@map("GPS")
 }

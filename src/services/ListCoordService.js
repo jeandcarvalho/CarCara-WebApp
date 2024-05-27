@@ -17,7 +17,7 @@ class ListCoordService {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const skip = (page - 1) * pageSize;
-                const where = searchString ? { Videoname: { contains: searchString } } : {};
+                const where = searchString ? { videoname: { contains: searchString } } : {};
                 const filesdatas = yield prisma.coordinates.findMany({
                     where,
                     skip,
