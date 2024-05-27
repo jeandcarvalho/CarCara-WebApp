@@ -3,6 +3,7 @@ import { ListFilesController } from "./controllers/ListFilesController";
 import { ListCarController } from "./controllers/ListCarController";
 import { ListGeoController } from "./controllers/ListGeoController";
 import { ListCoordController } from "./controllers/ListCoordController";
+import { ListVehicleController } from "./controllers/ListVehicleController";
 export async function routes(fastify: FastifyInstance, options: FastifyPluginOptions)
 {
     fastify.get("/videofiles", async (request: FastifyRequest, reply: FastifyReply) => {
@@ -18,5 +19,8 @@ export async function routes(fastify: FastifyInstance, options: FastifyPluginOpt
     })
     fastify.get("/coordinates", async (request: FastifyRequest, reply: FastifyReply) => {
         return new ListCoordController().handle(request, reply)
+    })
+    fastify.get("/vehicle", async (request: FastifyRequest, reply: FastifyReply) => {
+        return new ListVehicleController().handle(request, reply)
     })
 }
