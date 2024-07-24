@@ -8,25 +8,17 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-const fastify_1 = __importDefault(require("fastify"));
-const routes_1 = require("./routes");
-const cors_1 = __importDefault(require("@fastify/cors"));
-const app = (0, fastify_1.default)({ logger: true });
-app.setErrorHandler((error, request, reply) => {
-    reply.code(400).send({ message: error.message });
-});
-const start = () => __awaiter(void 0, void 0, void 0, function* () {
-    yield app.register(cors_1.default);
-    yield app.register(routes_1.routes);
-    try {
-        yield app.listen({ port: 8080, host: '0.0.0.0' }); // Usar um objeto de opções
+exports.ListVideosController = void 0;
+const ListVideosService_1 = require("../services/ListVideosService");
+class ListVideosController {
+    handle(request, reply) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { page = 1, pageSize = 10, searchString } = request.query;
+            const listVideosService = new ListVideosService_1.ListVideosService();
+            const geo = yield listVideosService.execute(Number(page), Number(pageSize), searchString);
+            reply.send(geo);
+        });
     }
-    catch (err) {
-        process.exit(1);
-    }
-});
-start();
+}
+exports.ListVideosController = ListVideosController;

@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gsa-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gsa-api
+  template:
+    metadata:
+      labels:
+        app: gsa-api
+    spec:
+      containers:
+      - name: gsa-api
+        image: gcr.io/gsapi-project-425317/gsa-api:v1
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gsa-api-service
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 8080
+  selector:
+    app: gsa-api

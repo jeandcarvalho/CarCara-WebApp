@@ -15,6 +15,7 @@ const ListCarController_1 = require("./controllers/ListCarController");
 const ListGeoController_1 = require("./controllers/ListGeoController");
 const ListCoordController_1 = require("./controllers/ListCoordController");
 const ListVehicleController_1 = require("./controllers/ListVehicleController");
+const ListVideosController_1 = require("./controllers/ListVideosController");
 function routes(fastify, options) {
     return __awaiter(this, void 0, void 0, function* () {
         fastify.get("/videofiles", (request, reply) => __awaiter(this, void 0, void 0, function* () {
@@ -31,6 +32,9 @@ function routes(fastify, options) {
         }));
         fastify.get("/vehicle", (request, reply) => __awaiter(this, void 0, void 0, function* () {
             return new ListVehicleController_1.ListVehicleController().handle(request, reply);
+        }));
+        fastify.get("/videofiless", (request, reply) => __awaiter(this, void 0, void 0, function* () {
+            return new ListVideosController_1.ListVideosController().handle(request, reply);
         }));
     });
 }

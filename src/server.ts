@@ -1,25 +1,21 @@
 import Fastify from 'fastify';
-import {routes} from './routes'
-import cors from '@fastify/cors'
+import { routes } from './routes';
+import cors from '@fastify/cors';
 
-const app = Fastify({ logger: true})
+const app = Fastify({ logger: true });
 
 app.setErrorHandler((error, request, reply) => {
-    reply.code(400).send({message: error.message})
-})
+  reply.code(400).send({ message: error.message });
+});
 
-const start = async () => 
-{
-await app.register(cors);
-await app.register(routes);
-try
-{
-    await app.listen(process.env.PORT || 3333, '0.0.0.0');
-}
-catch(err)
-{
+const start = async () => {
+  await app.register(cors);
+  await app.register(routes);
+  try {
+    await app.listen({ port: 8080, host: '0.0.0.0' }); // Usar um objeto de opções
+  } catch (err) {
     process.exit(1);
-}
-}
+  }
+};
 
 start();

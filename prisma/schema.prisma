@@ -106,3 +106,23 @@ model Speed {
   
   @@map("SPEED")
 }
+
+model VideoFiles {
+  id         String    @id @map("_id")
+  VideoFile String
+  Link String
+  Date String
+  District String
+  City String
+  State String
+  Gps_y String
+  Gps_x String
+  Area String
+  RoadType String @map("Road Type")
+  Traffic String
+  Misc String
+  Weather String
+  Period String
+  
+  @@map("VideoFiless")
+}
