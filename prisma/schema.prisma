@@ -126,3 +126,11 @@ model VideoFiles {
   
   @@map("VideoFiless")
 }
+
+model Visiter {
+  id         String    @id @map("_id")
+  visitantes Int
+
+  
+  @@map("VisitsCounter")
+}
