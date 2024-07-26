@@ -38,7 +38,7 @@ function routes(fastify, options) {
         fastify.get("/videofiless", (request, reply) => __awaiter(this, void 0, void 0, function* () {
             return new ListVideosController_1.ListVideosController().handle(request, reply);
         }));
-        fastify.get("/homecounter", (request, reply) => __awaiter(this, void 0, void 0, function* () {
+        fastify.post("/homecounter", (request, reply) => __awaiter(this, void 0, void 0, function* () {
             return new HomeController_1.HomeController().handle(request, reply);
         }));
         fastify.get("/counter", (request, reply) => __awaiter(this, void 0, void 0, function* () {

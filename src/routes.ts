@@ -27,7 +27,7 @@ export async function routes(fastify: FastifyInstance, options: FastifyPluginOpt
     fastify.get("/videofiless", async (request: FastifyRequest, reply: FastifyReply) => {
         return new ListVideosController().handle(request, reply)
     })
-    fastify.get("/homecounter", async (request: FastifyRequest, reply: FastifyReply) => {
+    fastify.post("/homecounter", async (request: FastifyRequest, reply: FastifyReply) => {
         return new HomeController().handle(request, reply)
     })
     fastify.get("/counter", async (request: FastifyRequest, reply: FastifyReply) => {
