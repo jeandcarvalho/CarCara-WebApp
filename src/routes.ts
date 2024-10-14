@@ -7,6 +7,7 @@ import { ListVehicleController } from "./controllers/ListVehicleController";
 import { ListVideosController } from "./controllers/ListVideosController";
 import { HomeController } from "./controllers/HomeController";
 import { ListCounterController } from "./controllers/ListCounterController";
+
 export async function routes(fastify: FastifyInstance, options: FastifyPluginOptions)
 {
     fastify.get("/videofiles", async (request: FastifyRequest, reply: FastifyReply) => {
@@ -31,6 +32,9 @@ export async function routes(fastify: FastifyInstance, options: FastifyPluginOpt
         return new HomeController().handle(request, reply)
     })
     fastify.get("/counter", async (request: FastifyRequest, reply: FastifyReply) => {
+        return new ListCounterController().handle(request, reply)
+    })
+    fastify.get("/speed", async (request: FastifyRequest, reply: FastifyReply) => {
         return new ListCounterController().handle(request, reply)
     })
 

@@ -91,18 +91,9 @@ model Coordinates {
 
 model Speed {
   id         String    @id @map("_id")
-  videoname String
-  timestamps  String
-  VehicleSpeed String
-  WheelSpeed_F_L String
-  WheelSpeed_F_R String
-  WheelSpeed_R_L String
-  WheelSpeed_R_R String
-  SteeringWheelAngle String
-  SteeringWheelAngle_Offset String
-  SteeringWheelRotationSpeed String
-  BrakingPressure String
-  BrakingPressure_Fast String
+  videoname String  @map("Csvname")
+  timestamps  String @map("Link")
+
   
   @@map("SPEED")
 }
