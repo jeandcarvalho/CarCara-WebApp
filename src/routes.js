@@ -18,6 +18,7 @@ const ListVehicleController_1 = require("./controllers/ListVehicleController");
 const ListVideosController_1 = require("./controllers/ListVideosController");
 const HomeController_1 = require("./controllers/HomeController");
 const ListCounterController_1 = require("./controllers/ListCounterController");
+const ListCoordFullController_1 = require("./controllers/ListCoordFullController");
 function routes(fastify, options) {
     return __awaiter(this, void 0, void 0, function* () {
         fastify.get("/videofiles", (request, reply) => __awaiter(this, void 0, void 0, function* () {
@@ -46,6 +47,9 @@ function routes(fastify, options) {
         }));
         fastify.get("/speed", (request, reply) => __awaiter(this, void 0, void 0, function* () {
             return new ListCounterController_1.ListCounterController().handle(request, reply);
+        }));
+        fastify.get("/coordinatesfull", (request, reply) => __awaiter(this, void 0, void 0, function* () {
+            return new ListCoordFullController_1.ListCoordFullController().handle(request, reply);
         }));
     });
 }

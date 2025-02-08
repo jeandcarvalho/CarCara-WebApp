@@ -7,6 +7,7 @@ import { ListVehicleController } from "./controllers/ListVehicleController";
 import { ListVideosController } from "./controllers/ListVideosController";
 import { HomeController } from "./controllers/HomeController";
 import { ListCounterController } from "./controllers/ListCounterController";
+import { ListCoordFullController } from "./controllers/ListCoordFullController";
 
 export async function routes(fastify: FastifyInstance, options: FastifyPluginOptions)
 {
@@ -36,6 +37,9 @@ export async function routes(fastify: FastifyInstance, options: FastifyPluginOpt
     })
     fastify.get("/speed", async (request: FastifyRequest, reply: FastifyReply) => {
         return new ListCounterController().handle(request, reply)
+    })
+    fastify.get("/coordinatesfull", async (request: FastifyRequest, reply: FastifyReply) => {
+        return new ListCoordFullController().handle(request, reply)
     })
 
 

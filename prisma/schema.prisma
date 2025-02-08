@@ -88,6 +88,18 @@ model Coordinates {
   @@map("GPS")
 }
 
+model CoordinatesMap {
+  id         String    @id @map("_id")
+  FileName String
+  Timestamp  String
+  GPS_x String
+  GPS_y String
+ 
+
+  
+  @@map("Coordinates")
+}
+
 
 model Speed {
   id         String    @id @map("_id")
