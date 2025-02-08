@@ -15,8 +15,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CreateCustomerService = void 0;
 const prisma_1 = __importDefault(require("../prisma"));
 class CreateCustomerService {
-    execute(_a) {
-        return __awaiter(this, arguments, void 0, function* ({ name, email }) {
+    execute({ name, email }) {
+        return __awaiter(this, void 0, void 0, function* () {
             // console.log("Rota foi chamada");
             if (!name || !email) {
                 throw new Error("Preencha todos os campos");

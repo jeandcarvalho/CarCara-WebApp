@@ -125,3 +125,35 @@ model Visiter {
   
   @@map("VisitsCounter")
 }
+
+model FilesProcessed {
+  id         String    @id @map("_id")
+  FileName String
+  Timestamp String
+  GPS_x String
+  GPS_y String
+  City String
+  Country String
+  District String
+  State String
+  Street String
+  IMU String 
+  OBII String
+  Radar String
+  Csv String
+  Mf4 String
+  VIEW360 String @map("360VIEW")
+  CAM_Front_Center String
+  CAM_Front_Left String
+  CAM_Front_Right String
+  CAM_Rear_Center String
+  CAM_Rear_Left String
+  CAM_Rear_Right String
+  Area String  
+  Misc String
+  Period String
+  RoadType String @map("Road Type")
+  Traffic String
+  Weather String
+  @@map("FilesProcessed")
+}

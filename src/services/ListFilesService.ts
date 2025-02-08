@@ -5,12 +5,14 @@ const prisma = new PrismaClient();
 class ListFilesService {
   async execute(): Promise<any[]> {
     try {
-      // Busca os 10 primeiros documentos da coleção "Measurements"
-      const filesdatas = await prisma.filesMenu.findMany();
-      return filesdatas;
+      // Busca TODOS os documentos da coleção "filesMenu"
+      const filesData = await prisma.filesProcessed.findMany({});
+      return filesData;
     } catch (error) {
-      console.error('Erro ao buscar dados:', error);
+      console.error("Erro ao buscar dados:", error);
       return [];
+    } finally {
+      await prisma.$disconnect(); // Fecha a conexão com o banco
     }
   }
 }

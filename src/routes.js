@@ -44,6 +44,9 @@ function routes(fastify, options) {
         fastify.get("/counter", (request, reply) => __awaiter(this, void 0, void 0, function* () {
             return new ListCounterController_1.ListCounterController().handle(request, reply);
         }));
+        fastify.get("/speed", (request, reply) => __awaiter(this, void 0, void 0, function* () {
+            return new ListCounterController_1.ListCounterController().handle(request, reply);
+        }));
     });
 }
 exports.routes = routes;

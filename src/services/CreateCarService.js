@@ -15,8 +15,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CreateCarService = void 0;
 const prisma_1 = __importDefault(require("../prisma"));
 class CreateCarService {
-    execute(_a) {
-        return __awaiter(this, arguments, void 0, function* ({}) {
+    execute({}) {
+        return __awaiter(this, void 0, void 0, function* () {
             // console.log("Rota foi chamada");
             const car = yield prisma_1.default.measurement.create({
                 data: {
