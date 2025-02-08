@@ -14,8 +14,8 @@ const client_1 = require("@prisma/client");
 const prisma = new client_1.PrismaClient();
 class ListVideosService {
     execute(page, pageSize, searchString) {
-        var _a, _b, _c, _d, _e, _f;
         return __awaiter(this, void 0, void 0, function* () {
+            var _a, _b, _c, _d, _e, _f;
             try {
                 let filter = {};
                 if (searchString) {

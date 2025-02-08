@@ -16,13 +16,16 @@ class ListFilesService {
     execute() {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                // Busca os 10 primeiros documentos da coleção "Measurements"
-                const filesdatas = yield prisma.filesMenu.findMany();
-                return filesdatas;
+                // Busca TODOS os documentos da coleção "filesMenu"
+                const filesData = yield prisma.filesProcessed.findMany({});
+                return filesData;
             }
             catch (error) {
-                console.error('Erro ao buscar dados:', error);
+                console.error("Erro ao buscar dados:", error);
                 return [];
+            }
+            finally {
+                yield prisma.$disconnect(); // Fecha a conexão com o banco
             }
         });
     }
